@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Github, Linkedin, Mail, Menu, Download, ArrowRight, ExternalLink, BookOpen, Certificate, Award, Users, Brain, Target, Lightbulb, ShieldCheck, Sparkles } from 'lucide-react'
+import { Github, Linkedin, Mail, Menu, Download, ArrowRight, ExternalLink, BookOpen, Certificate, Award, Users, Brain, Target, Lightbulb, ShieldCheck, Sparkles, Printer } from 'lucide-react'
 import Spline from '@splinetool/react-spline'
 
 function Pill({ children }) {
@@ -43,7 +43,6 @@ function Navbar() {
 
   const GITHUB = 'https://github.com/Sujal007T'
   const LINKEDIN = 'https://www.linkedin.com/in/sujal-tailor-4734932a9?utm_source=share_via&utm_content=profile&utm_medium=member_android'
-  const RESUME_URL = '/resume.pdf' // Replace with your PDF link if hosted elsewhere
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40">
@@ -60,11 +59,10 @@ function Navbar() {
               </a>
             ))}
             <a
-              href={RESUME_URL}
-              download
+              href="/resume"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
             >
-              <Download size={16} /> Download Resume
+              <Printer size={16} /> Resume (Print to PDF)
             </a>
             <div className="ml-1 flex items-center gap-2">
               <a href={GITHUB} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={16} /></a>
@@ -85,11 +83,10 @@ function Navbar() {
                 </a>
               ))}
               <a
-                href={RESUME_URL}
-                download
+                href="/resume"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm"
               >
-                <Download size={16} /> Download Resume
+                <Printer size={16} /> Resume (Print to PDF)
               </a>
               <div className="mt-2 flex items-center justify-center gap-2">
                 <a href={GITHUB} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={16} /></a>
@@ -134,8 +131,8 @@ function Hero() {
             <a href="#projects" className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 dark:bg-white dark:text-zinc-900">
               Explore Projects <ArrowRight size={16} />
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800/50">
-              Contact <Mail size={16} />
+            <a href="/resume" className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800/50">
+              Resume <Printer size={16} />
             </a>
             <div className="ml-2 inline-flex items-center gap-2">
               <a href={GITHUB} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={18} /></a>
@@ -239,6 +236,11 @@ function Resume() {
             {['Data Science Intern','Software Engineering Intern (Systems/Security)','Full Stack Web Developer','ML Engineer Intern'].map((t)=> (
               <Pill key={t}>{t}</Pill>
             ))}
+          </div>
+          <div className="mt-4">
+            <a href="/resume" className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800/50">
+              Open Print-Friendly Resume <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </div>
