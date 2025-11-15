@@ -62,7 +62,7 @@ function Navbar() {
               <Download size={16} /> Resume
             </a>
           </nav>
-          <button onClick={() => setOpen(!open)} className="rounded-xl p-2 hover:bg-black/5 md:hidden dark:hover:bg-white/5" aria-label="Toggle menu">
+          <button onClick={() => setOpen(!open)} className="rounded-xl p-2 hover:bg-black/5 md:hidden dark:hover:bg:white/5" aria-label="Toggle menu">
             <Menu />
           </button>
         </div>
@@ -90,6 +90,10 @@ function Navbar() {
 }
 
 function Hero() {
+  const GITHUB = 'https://github.com/Sujal007T'
+  const LINKEDIN = 'https://www.linkedin.com/in/sujal-tailor-4734932a9?utm_source=share_via&utm_content=profile&utm_medium=member_android'
+  const EMAIL = 's.sujal.profiquence@gmail.com'
+
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden pt-24">
       <div className="pointer-events-none absolute inset-0">
@@ -101,7 +105,7 @@ function Hero() {
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur-md dark:bg-zinc-900/60 dark:text-zinc-300">
             <Sparkles size={14} className="text-indigo-600" /> Digital Portfolio — Cover Page
           </div>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-zinc-900 md:text-6xl dark:text-white">
+          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-zinc-900 md:text-6xl dark:text:white">
             Sujal Tailor
           </h1>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">B.Tech (3rd Year), Computer Science</p>
@@ -120,9 +124,9 @@ function Hero() {
               Contact <Mail size={16} />
             </a>
             <div className="ml-2 inline-flex items-center gap-2">
-              <a href="https://github.com/" target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={18} /></a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Linkedin size={18} /></a>
-              <a href="mailto:hello@example.com" className="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Mail size={18} /></a>
+              <a href={GITHUB} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={18} /></a>
+              <a href={LINKEDIN} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Linkedin size={18} /></a>
+              <a href={`mailto:${EMAIL}`} className="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Mail size={18} /></a>
             </div>
           </div>
         </div>
@@ -159,7 +163,7 @@ function TableOfContents() {
     <Section id="toc" title="Table of Contents">
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {items.map((i) => (
-          <a key={i.href} href={i.href} className="flex items-center justify-between rounded-xl border border-zinc-200 bg-white/60 p-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-800/60">
+          <a key={i.href} href={i.href} className="flex items-center justify-between rounded-xl border border-zinc-200 bg:white/60 p-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-800/60">
             {i.label}
             <ArrowRight size={16} className="opacity-60" />
           </a>
@@ -541,19 +545,23 @@ function Reflection() {
 }
 
 function Contact() {
+  const GITHUB = 'https://github.com/Sujal007T'
+  const LINKEDIN = 'https://www.linkedin.com/in/sujal-tailor-4734932a9?utm_source=share_via&utm_content=profile&utm_medium=member_android'
+  const EMAIL = 's.sujal.profiquence@gmail.com'
+
   return (
     <Section id="contact" title="Contact">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="text-zinc-700 dark:text-zinc-300">Open to internships and collaborations. Let’s connect.</p>
           <div className="mt-3 flex items-center gap-2">
-            <a href="mailto:hello@example.com" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm">
+            <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm">
               <Mail size={16} /> Email
             </a>
-            <a href="https://github.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800/50">
+            <a href={GITHUB} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800/50">
               <Github size={16} /> GitHub
             </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800/50">
+            <a href={LINKEDIN} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800/50">
               <Linkedin size={16} /> LinkedIn
             </a>
           </div>
@@ -567,14 +575,18 @@ function Contact() {
 }
 
 function Footer() {
+  const GITHUB = 'https://github.com/Sujal007T'
+  const LINKEDIN = 'https://www.linkedin.com/in/sujal-tailor-4734932a9?utm_source=share_via&utm_content=profile&utm_medium=member_android'
+  const EMAIL = 's.sujal.profiquence@gmail.com'
+
   return (
     <footer className="border-t border-zinc-200/50 bg-white/60 py-8 backdrop-blur-md dark:border-zinc-800/60 dark:bg-zinc-950/60">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
         <p className="text-sm text-zinc-600 dark:text-zinc-400">© {new Date().getFullYear()} Sujal Tailor. All rights reserved.</p>
         <div className="flex items-center gap-3">
-          <a href="https://github.com/" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={16} /></a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Linkedin size={16} /></a>
-          <a href="mailto:hello@example.com" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Mail size={16} /></a>
+          <a href={GITHUB} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={16} /></a>
+          <a href={LINKEDIN} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Linkedin size={16} /></a>
+          <a href={`mailto:${EMAIL}`} className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Mail size={16} /></a>
         </div>
       </div>
     </footer>
