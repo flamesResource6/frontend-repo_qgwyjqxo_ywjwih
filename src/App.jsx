@@ -1,6 +1,41 @@
-import { useState } from 'react'
-import { Github, Linkedin, Mail, Menu, Download, ArrowRight, ExternalLink, BookOpen, Certificate, Award, Users, Brain, Target, Lightbulb, ShieldCheck, Sparkles, Printer } from 'lucide-react'
-import Spline from '@splinetool/react-spline'
+import { useState, useEffect } from 'react'
+import { Github, Linkedin, Mail, Menu, ArrowRight, ExternalLink, BookOpen, Certificate, Award, Users, Brain, Target, Lightbulb, ShieldCheck, Sparkles, Printer } from 'lucide-react'
+
+// Lazy/defensive Spline loader to avoid hard crashes on environments that block WebGL or external iframes
+function SplineCanvas() {
+  const [SplineComp, setSplineComp] = useState(null)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    let mounted = true
+    import('@splinetool/react-spline')
+      .then((mod) => {
+        if (mounted) setSplineComp(() => mod.default)
+      })
+      .catch((e) => {
+        console.error('Failed to load Spline:', e)
+        setError('Unable to load 3D scene')
+      })
+    return () => { mounted = false }
+  }, [])
+
+  if (error) {
+    return (
+      <div className="absolute inset-0 grid place-items-center rounded-3xl border border-white/10 bg-white/60 p-6 text-sm text-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-300">
+        {error}
+      </div>
+    )
+  }
+
+  if (!SplineComp) {
+    return (
+      <div className="absolute inset-0 animate-pulse rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-zinc-900 dark:to-zinc-800" />
+    )
+  }
+
+  const Spline = SplineComp
+  return <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+}
 
 function Pill({ children }) {
   return (
@@ -143,7 +178,7 @@ function Hero() {
         </div>
         <div className="relative h-[420px] w-full sm:h-[500px] md:h-[560px] lg:h-[640px]">
           <div className="absolute inset-0 rounded-3xl border border-white/10 bg-white/50 shadow-xl backdrop-blur-md dark:bg-zinc-900/50" />
-          <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+          <SplineCanvas />
         </div>
       </div>
     </section>
