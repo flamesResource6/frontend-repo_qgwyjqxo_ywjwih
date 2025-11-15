@@ -41,6 +41,10 @@ function Navbar() {
     { href: '#contact', label: 'Contact' },
   ]
 
+  const GITHUB = 'https://github.com/Sujal007T'
+  const LINKEDIN = 'https://www.linkedin.com/in/sujal-tailor-4734932a9?utm_source=share_via&utm_content=profile&utm_medium=member_android'
+  const RESUME_URL = '/resume.pdf' // Replace with your PDF link if hosted elsewhere
+
   return (
     <header className="fixed top-0 left-0 right-0 z-40">
       <div className="mx-auto max-w-7xl px-6 py-4">
@@ -49,20 +53,25 @@ function Navbar() {
             <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600" />
             <span className="text-sm font-semibold tracking-wide text-zinc-800 dark:text-zinc-100">Sujal Tailor</span>
           </a>
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-4 md:flex">
             {links.map((l) => (
               <a key={l.href} href={l.href} className="text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white">
                 {l.label}
               </a>
             ))}
             <a
-              href="#resume"
+              href={RESUME_URL}
+              download
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
             >
-              <Download size={16} /> Resume
+              <Download size={16} /> Download Resume
             </a>
+            <div className="ml-1 flex items-center gap-2">
+              <a href={GITHUB} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={16} /></a>
+              <a href={LINKEDIN} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Linkedin size={16} /></a>
+            </div>
           </nav>
-          <button onClick={() => setOpen(!open)} className="rounded-xl p-2 hover:bg-black/5 md:hidden dark:hover:bg:white/5" aria-label="Toggle menu">
+          <button onClick={() => setOpen(!open)} className="rounded-xl p-2 hover:bg-black/5 md:hidden dark:hover:bg-white/5" aria-label="Toggle menu">
             <Menu />
           </button>
         </div>
@@ -76,11 +85,16 @@ function Navbar() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href={RESUME_URL}
+                download
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm"
               >
-                <ArrowRight size={16} /> Get in touch
+                <Download size={16} /> Download Resume
               </a>
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <a href={GITHUB} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Github size={16} /></a>
+                <a href={LINKEDIN} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-200 bg-white/70 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"><Linkedin size={16} /></a>
+              </div>
             </div>
           </div>
         )}
@@ -105,12 +119,12 @@ function Hero() {
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur-md dark:bg-zinc-900/60 dark:text-zinc-300">
             <Sparkles size={14} className="text-indigo-600" /> Digital Portfolio — Cover Page
           </div>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-zinc-900 md:text-6xl dark:text:white">
+          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-zinc-900 md:text-6xl dark:text-white">
             Sujal Tailor
           </h1>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">B.Tech (3rd Year), Computer Science</p>
           <div className="mt-2 flex flex-wrap gap-2">
-            <Pill>[Your Institution Name]</Pill>
+            <Pill>Pandit Deendayal Energy University</Pill>
             <Pill>Submission Date: November 2025</Pill>
           </div>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
@@ -163,7 +177,7 @@ function TableOfContents() {
     <Section id="toc" title="Table of Contents">
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {items.map((i) => (
-          <a key={i.href} href={i.href} className="flex items-center justify-between rounded-xl border border-zinc-200 bg:white/60 p-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-800/60">
+          <a key={i.href} href={i.href} className="flex items-center justify-between rounded-xl border border-zinc-200 bg-white/60 p-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-800/60">
             {i.label}
             <ArrowRight size={16} className="opacity-60" />
           </a>
@@ -202,7 +216,7 @@ function Resume() {
           <div className="space-y-3 text-sm">
             <div className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
               <div className="font-semibold">B.Tech – Computer Science (2nd Year)</div>
-              <div className="text-zinc-600 dark:text-zinc-300">[Your Institution] | 2023–Present</div>
+              <div className="text-zinc-600 dark:text-zinc-300">Pandit Deendayal Energy University | 2023–Present</div>
             </div>
             <div className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
               <div className="font-semibold">Higher Secondary (PCM)</div>
